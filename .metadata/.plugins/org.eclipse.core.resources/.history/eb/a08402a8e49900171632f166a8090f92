@@ -1,0 +1,66 @@
+package com.bridgelabz.databaseaccess;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.*;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class DatabaseAccessProgram extends HttpServlet {
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Statement stmt=null;
+		Connection con=null;
+		ResultSet rs=null;
+		resp.setContentType("text/html");
+		String s ="nayak";
+		PrintWriter out = resp.getWriter();
+		out.print(s);
+		final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+	    final String DB_URL="jdbc:mysql://localhost/TEST";
+	    final String USER = "root";
+	    final String PASS = "password";
+	    try {
+	    	Class.forName("com.mysql.jdbc.Driver");
+	        Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+	        stmt = con.createStatement();
+	        String sql;
+	        sql = "SELECT * FROM bridgelabz.student";
+	        rs = stmt.executeQuery(sql);
+	        while(rs.next()){
+	            int id  = rs.getInt("id");
+	            String name = rs.getString("name");
+	            String branch = rs.getString("branch");
+	            
+	            out.println("ID: " + id + "<br>");
+	            out.println(", Name: " + name + "<br>");
+	            out.println(", Branch: " + branch + "<br>");
+	            
+	         }
+	        out.println("</body></html>");
+	        rs.close();
+	        stmt.close();
+	        conn.close();
+	    }catch(SQLException se) {
+	         se.printStackTrace();
+	      } catch(Exception e) {
+	         e.printStackTrace();
+	      } finally {
+	         try {
+	            if(stmt!=null)
+	               stmt.close();
+	         } catch(SQLException se2) {
+	         }
+	         try {
+	            if(con!=null)
+	            con.close();
+	         } catch(SQLException se) {
+	            se.printStackTrace();
+	         }
+	      }
+	}
+}

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+loginid:<input type="text"NAME="loginid" SIZE="30">
+password:<input type="text"NAME="password" SIZE="30">
+<INPUT TYPE=submit VALUE="Submit">
+</body>
+</html>

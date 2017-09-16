@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>HitCounterProject</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>HitCounterProgram</display-name>
+    <servlet-name>HitCounterProgram</servlet-name>
+    <servlet-class>com.bridgelabz.hitcounter.HitCounterProgram</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HitCounterProgram</servlet-name>
+    <url-pattern>/HitCounterProgram</url-pattern>
+  </servlet-mapping>
+</web-app>

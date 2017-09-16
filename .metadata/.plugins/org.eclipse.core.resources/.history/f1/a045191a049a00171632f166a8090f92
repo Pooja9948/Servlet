@@ -1,0 +1,25 @@
+package com.bridgelabz.fileupload;
+
+import java.io.File;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+public class FIleUploadProgram extends HttpServlet{
+	 private boolean isMultipart;
+	   private String filePath;
+	   private int maxFileSize = 50 * 1024;
+	   private int maxMemSize = 4 * 1024;
+	   private File file ;
+	   public void init( ){
+		    filePath = getServletContext().getInitParameter("file-upload"); 
+	   }
+	   public void doPost(HttpServletRequest request, HttpServletResponse response)
+			      throws ServletException, java.io.IOException {
+		   isMultipart = ServletFileUpload.isMultipartContent(request);
+		      response.setContentType("text/html");
+		      java.io.PrintWriter out = response.getWriter( );
+		      
+		      
+	   }
+}

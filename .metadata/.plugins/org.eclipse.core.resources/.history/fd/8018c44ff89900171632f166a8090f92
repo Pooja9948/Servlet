@@ -1,0 +1,17 @@
+package com.bridgelabz.fileupload;
+
+import java.io.File;
+
+import javax.servlet.http.HttpServlet;
+
+public class FIleUploadProgram extends HttpServlet{
+	private boolean isMultipart;
+	   private String filePath;
+	   private int maxFileSize = 50 * 1024;
+	   private int maxMemSize = 4 * 1024;
+	   private File file ;
+	   public void init( ){
+		      // Get the file location where it would be stored.
+		      filePath = getServletContext().getInitParameter("file-upload"); 
+	   }
+}

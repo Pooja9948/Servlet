@@ -1,0 +1,9 @@
+package com.bridgelabz.hitcounter;
+
+public class HitCounterProgram extends HttpServlet{
+	private int hitCount; 
+
+	   public void init() { 
+	      hitCount = 0;
+	   }
+}
